@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Budget</title>
+
+    <link rel="stylesheet" type="text/css" href="./my-budget.css" />
+  </head>
+
+  <body>
+    <section class="section-1">
+      <div class="container">
+        <h2 id="date"></h2>
+        <p class="current-budget"></p>
+        <div class="income-box">
+          <span>INCOME</span>
+          <p id="income">+0.00</p>
+        </div>
+        <div class="expenses-box">
+          <span>EXPENSES</span>
+          <div class="inner-expenses-box">
+            <p id="expenses">-0.00</p>
+            <p style="background-color: rgb(203, 108, 97)" id="percentage">
+              10%
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section-2">
+      <div class="container-2">
+        <div class="selectBtn">
+          <select id="operatorValue" onchange="toggleBudgetOperator()" style="margin-top: 0.5rem" property="">
+            <option value="+">+</option>
+            <option value="-">-</option>
+          </select>
+        </div>
+        <div id="plus" class="plus">
+            <input
+              id="Description"
+              style="margin-top: 0.5rem"
+              type="text"
+              placeholder="Add description"
+            />
+            <input
+              id="Value"
+              style="margin-top: 0.5rem"
+              type="number"
+              placeholder="Value"
+            />
+            <button style="margin-top: 0.5rem" onclick="getIncome()">V</button>
+        </div>
+        <div style="display: none;" id="minus" class="minus">
+            <input
+            id="Description-minus"
+            style="margin-top: 0.5rem"
+            type="text"
+            placeholder="Add description"
+          />
+          <input
+            id="Value-minus"
+            style="margin-top: 0.5rem"
+            type="number"
+            placeholder="Value"
+          />
+          <button style="margin-top: 0.5rem" onclick="getExpenses()">V</button>
+        </div>
+    
+      </div>
+
+      </div>
+    </section>
+    <script src="./my-budget.js"></script>
+  </body>
+</html>

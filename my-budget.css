@@ -1,0 +1,156 @@
+html{
+    width: 100%;
+    height: 100%;
+    
+}
+body{
+    margin: 0;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+/* COMMENT */
+.section-1{
+    width: 100%;
+    height: 40vh;
+    background-color: red;
+    background-position: center;
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size:cover; /* Resize the background image to cover the entire container */
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(./images/image-budget.jpg);
+}
+
+/* COMMENT */
+
+h2{
+    margin: 0;
+    text-align: center;
+    position: relative;
+    top: 5%;
+    color: white;
+    font-size: 1.3rem;
+    font-weight:300;
+
+}
+
+/* COMMENT */
+
+.current-budget{
+    font-size: 40px;
+    color: white;
+    font-weight: 100;
+    margin-bottom: 30px;
+}
+
+/* COMMENT */
+
+.income-box {
+    display: flex;
+    width: 30%;
+    height: 20%;
+    background-color: rgb(6, 128, 137);
+    justify-content: space-between;
+    margin: 4px;
+    
+}
+
+.income-box p{
+    font-weight: bold;
+    padding: 4px;
+    padding-left: 10px;
+    color: white;
+}
+
+
+.income-box span{
+    font-weight: bold;
+    padding: 4px;
+    padding-left: 10px;
+    color: rgb(0, 0, 0);
+    align-self: center;
+
+}
+
+/* COMMENT */
+
+.expenses-box {
+    display: flex;
+    width: 30%;
+    height: 20%;
+    background-color: rgb(204, 44, 52);
+    justify-content: space-between;
+    margin: 4px;
+    margin-bottom: 4px;
+}
+
+.expenses-box p{
+    font-weight: bold;
+    padding: 4px;
+    padding-left: 10px;
+    color: white;
+
+}
+
+.expenses-box span{
+    font-weight: bold;
+    padding: 4px;
+    padding-left: 10px;
+    color: rgb(0, 0, 0);
+    align-self: center;
+
+}
+
+/* COMMENT */
+
+.inner-expenses-box{
+    display: flex;
+}
+
+/* Section 2  */
+.section-2{
+    width: 100%;
+    height: 10vh;
+    background-color: rgb(230, 230, 230);
+}
+
+.container-2{
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns:max-content;
+    justify-content: center;
+    gap: 0.5rem;
+    
+}
+
+
+.selectBtn select{
+    width: 3rem;
+    height: 2.5rem;
+
+}
+
+.plus{
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns:max-content;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: green;
+}
+
+.minus{  
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns:max-content;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: red;
+}
+
