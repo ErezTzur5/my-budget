@@ -1,9 +1,14 @@
 html{
     width: 100%;
     height: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-weight: lighter;
     
 }
 body{
+    width: 100%;
+    height: 100%;
     margin: 0;
 }
 
@@ -20,10 +25,10 @@ body{
 .section-1{
     width: 100%;
     height: 40vh;
-    background-color: red;
+
     background-position: center;
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size:cover; /* Resize the background image to cover the entire container */
+    background-repeat: no-repeat; 
+    background-size:cover; 
     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(./images/image-budget.jpg);
 }
 
@@ -36,7 +41,7 @@ h2{
     top: 5%;
     color: white;
     font-size: 1.3rem;
-    font-weight:300;
+    
 
 }
 
@@ -45,7 +50,6 @@ h2{
 .current-budget{
     font-size: 40px;
     color: white;
-    font-weight: 100;
     margin-bottom: 30px;
 }
 
@@ -53,8 +57,8 @@ h2{
 
 .income-box {
     display: flex;
-    width: 30%;
-    height: 20%;
+    width: 28%;
+    height: 18%;
     background-color: rgb(6, 128, 137);
     justify-content: space-between;
     margin: 4px;
@@ -62,7 +66,6 @@ h2{
 }
 
 .income-box p{
-    font-weight: bold;
     padding: 4px;
     padding-left: 10px;
     color: white;
@@ -70,7 +73,6 @@ h2{
 
 
 .income-box span{
-    font-weight: bold;
     padding: 4px;
     padding-left: 10px;
     color: rgb(0, 0, 0);
@@ -78,12 +80,16 @@ h2{
 
 }
 
+#percentage{
+    background-color: rgb(203, 108, 97);
+    margin-right: 10px;
+}
 /* COMMENT */
 
 .expenses-box {
     display: flex;
-    width: 30%;
-    height: 20%;
+    width: 28%;
+    height: 18%;
     background-color: rgb(204, 44, 52);
     justify-content: space-between;
     margin: 4px;
@@ -91,7 +97,6 @@ h2{
 }
 
 .expenses-box p{
-    font-weight: bold;
     padding: 4px;
     padding-left: 10px;
     color: white;
@@ -99,7 +104,6 @@ h2{
 }
 
 .expenses-box span{
-    font-weight: bold;
     padding: 4px;
     padding-left: 10px;
     color: rgb(0, 0, 0);
@@ -116,22 +120,64 @@ h2{
 /* Section 2  */
 .section-2{
     width: 100%;
-    height: 10vh;
+    height: 8vh;
+    border-bottom: rgb(220, 220, 220) solid;
     background-color: rgb(230, 230, 230);
 }
 
 .container-2{
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns:max-content;
     justify-content: center;
     gap: 0.5rem;
     
 }
 
+#Value{
+    padding-left: 10px;
+    margin-top: 1rem;
+    width: 8vh;
+}
+
+#Value-minus{
+    padding-left: 10px;
+    margin-top: 1rem;
+    width: 8vh;
+}
+
+
+#Description{
+    padding-left: 10px;
+    margin-top: 1rem;
+    width: 35vh;
+    height: 4vh;
+}
+
+#Description-minus{
+    padding-left: 10px;
+    margin-top: 1rem;
+    width: 35vh;
+    height: 4vh;
+}
+
+/* Operator */
+#operatorValue{
+    border: gray 1px solid;
+    margin-top: 1.1rem;
+}
 
 .selectBtn select{
-    width: 3rem;
+    margin-top: 0.6rem;
+    padding: 0.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    
+    /* Arrow */
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath fill='%23131313' d='M0 1.5L5 8.5 10 1.5z'/%3E%3C/svg%3E");    background-repeat: no-repeat;
+    background-position: right 0.7rem top 50%;
+    background-size: 0.65rem auto;
+        
+    width: 4rem;
     height: 2.5rem;
 
 }
@@ -139,18 +185,74 @@ h2{
 .plus{
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns:max-content;
     justify-content: center;
-    gap: 0.5rem;
-    background-color: green;
+    gap: 0.8rem;
+
 }
+
+.checkmark-green {
+    width: 30px;
+    height: 30px;
+    border:  1px solid;
+    border-radius: 50%;
+    border-color: green;
+    display: block;
+    stroke-width: 2;
+    stroke: green;
+    stroke-miterlimit: 10;
+    stroke-dashoffset: 0;
+    margin: 10% auto;
+  }
+
+  .checkmark-red{
+    width: 30px;
+    height: 30px;
+    border:  1px solid;
+    border-radius: 50%;
+    border-color: red;
+    display: block;
+    stroke-width: 2;
+    stroke: red;
+    stroke-miterlimit: 10;
+    stroke-dashoffset: 0;
+    margin: 10% auto;
+  }
+
+  button{
+    margin-top: 1rem;
+    background-color: transparent;
+    border: none;
+    outline: none !important;
+  }
 
 .minus{  
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns:max-content;
     justify-content: center;
-    gap: 0.5rem;
-    background-color: red;
+    gap: 0.8rem;
+   
 }
 
+
+/* Section 3  */
+
+
+/* Container 3  */
+
+
+.container-3{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+    gap: 50px;
+}
+
+
+.income-list{
+    background-color: green;
+}
+
+
+.expenses-list{
+    background-color: red;
+}

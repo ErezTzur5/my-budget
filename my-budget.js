@@ -1,6 +1,8 @@
 const dateArray = {month: '',year: ''}
 let incomesArray = []
 let expensesArray = []
+
+
 document.querySelector(".current-budget").innerHTML = "-0.00";function getDate() {
     // Create a new Date object
     var currentDate = new Date();
@@ -32,33 +34,36 @@ function getIncome() {
     
     var amount = document.getElementById("Value").value;
     var description = document.getElementById("Description").value;
-
+    if (description.trim() === "" || amount.trim() === "") {
+        alert("Please fill in both description and value.");
+        return;
+      }
 
     let newIncome = { description: description, amount: amount , operator: '+'};
     // push the new income object into the array
     incomesArray.push(newIncome);
     updateBudget();
-    console.log(incomesArray);
+    updateIncomeChart();
+
+
+    
     return incomesArray
   
 }
 
-// function updateBudgetPlus() {
-//     // Calculate the total income
-//     let totalIncome = incomesArray.reduce((acc, income) => acc + parseFloat(income.amount), 0);
-    
-//     // Set the current budget element to the total income
-//     let currentBudgetElement = document.querySelector(".current-budget");
-//     currentBudgetElement.innerHTML = totalIncome.toFixed(2);
-// }
 
 function getExpenses() {
-    var amount = parseFloat(document.getElementById("Value-minus").value);
-    var description = document.getElementById("Description-minus").value;
 
+    var amount = document.getElementById("Value-minus").value;
+    var description = document.getElementById("Description-minus").value;
+    if (description.trim() === "" || amount.trim() === "") {
+        alert("Please fill in both description and value.");
+        return;
+      }
     let newExpense = { description: description, amount: amount, operator: '-'};
     expensesArray.push(newExpense);
     updateBudget();
+    updateExpensesChart();
     console.log(expensesArray);
     return expensesArray;
 }
@@ -71,6 +76,39 @@ function updateBudget() {
 
     let currentBudgetElement = document.querySelector(".current-budget");
     currentBudgetElement.innerHTML = totalBudget.toFixed(2);
+}
+
+
+function updateIncomeChart() {
+    const container = document.querySelector("#income-list");
+
+    const newDiv = document.createElement("div");
+    newDiv.classList.add("income-div");
+
+    const newRow = document.createElement("p");
+    newRow.classList.add("income-row");
+    incomesArray.forEach(item => {
+        newRow.textContent = `${item.description} ${item.amount}`});
+
+    newDiv.appendChild(newRow);
+
+    container.appendChild(newDiv);
+}
+// updateIncomeChart()
+function updateExpensesChart() {
+    const container = document.querySelector("#expenses-list");
+
+    const newDiv = document.createElement("div");
+    newDiv.classList.add("expenses-div");
+
+    const newRow = document.createElement("p");
+    newRow.classList.add("expenses-row");
+    expensesArray.forEach(item => {
+        newRow.textContent = `${item.description} ${item.amount}`});
+
+    newDiv.appendChild(newRow);
+
+    container.appendChild(newDiv);
 }
 
 function toggleBudgetOperator() {
