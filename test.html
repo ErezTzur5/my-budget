@@ -1,74 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dropdown Button</title>
-    <style>
-      /* Styling for the dropdown button */
-      .dropdown {
-        position: relative;
-        display: inline-block;
-      }
 
-      /* Styling for the button */
-      .dropbtn {
-        padding: 10px 20px;
-        background-color: #f0f0f0;
-        border: 1px solid #ccc;
-        cursor: pointer;
-        border-radius: 5px;
-        font-size: 16px;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dropdown Button</title>
+  <style>
+    function saveLocalStorageIncome(incomesArray) {
+      const index=localStorage.length;
+      localStorage.setItem(index, JSON.stringify(incomesArray[incomesArray.length - 1]));
 
-      /* Styling for the dropdown content */
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #fff;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-      }
+    }
 
-      /* Styling for the options */
-      .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        cursor: pointer;
-      }
+    function saveLocalStorageExpenses(expensesArrayArray) {
+      const index=localStorage.length;
+      localStorage.setItem(index, JSON.stringify(expensesArray[expensesArray.length - 1]));
 
-      /* Hover effect for options */
-      .dropdown-content a:hover {
-        background-color: #f1f1f1;
-      }
+    }
 
-      /* Show dropdown content when button is clicked */
-      .dropdown:hover .dropdown-content {
-        display: block;
+    function loadFromLocalStorage() {
+      for (let index=0; index < localStorage.length; index++) {
+        let key=localStorage.key(index) let value=localStorage.getItem(key) console.log(key, value)
       }
+    }
 
-      /* Hide dropdown content when not hovering over dropdown */
-      .dropdown-content:hover {
-        display: block;
-      }
+    loadFromLocalStorage()
 
-      /* Style for the active dropdown */
-      .active {
-        display: block !important;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Dropdown Button -->
-    <div class="dropdown">
-      <button class="dropbtn">Select an Option</button>
-      <div class="dropdown-content" id="myDropdown">
-        <a href="#">Option 1</a>
-        <a href="#">Option 2</a>
-        <a href="#">Option 3</a>
-      </div>
+    /* Styling for the dropdown button */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Styling for the button */
+    .dropbtn {
+      padding: 10px 20px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    /* Styling for the dropdown content */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    /* Styling for the options */
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      cursor: pointer;
+    }
+
+    /* Hover effect for options */
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    /* Show dropdown content when button is clicked */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Hide dropdown content when not hovering over dropdown */
+    .dropdown-content:hover {
+      display: block;
+    }
+
+    /* Style for the active dropdown */
+    .active {
+      display: block !important;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Dropdown Button -->
+  <div class="dropdown">
+    <button class="dropbtn">Select an Option</button>
+    <div class="dropdown-content" id="myDropdown">
+      <a href="#">Option 1</a>
+      <a href="#">Option 2</a>
+      <a href="#">Option 3</a>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

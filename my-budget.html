@@ -1,100 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Budget</title>
 
-    <link rel="stylesheet" type="text/css" href="./my-budget.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Budget</title>
 
-  <body>
-    <section class="section-1">
-      <div class="container">
-        <h2 id="date"></h2>
-        <p class="current-budget"></p>
-        <div class="income-box">
-          <span>INCOME</span>
-          <p id="income">+0.00</p>
-        </div>
-        <div class="expenses-box">
-          <span>EXPENSES</span>
-          <div class="inner-expenses-box">
-            <p id="expenses">-0.00</p>
-            <p id="percentage">10%</p>
-          </div>
+  <link rel="stylesheet" type="text/css" href="./my-budget.css" />
+</head>
+
+<body>
+  <section class="section-1">
+    <div class="container">
+      <h2 id="date"></h2>
+      <p class="current-budget"></p>
+      <div class="income-box">
+        <span>INCOME</span>
+        <p id="income">+0.00</p>
+      </div>
+      <div class="expenses-box">
+        <span>EXPENSES</span>
+        <div class="inner-expenses-box">
+          <p id="expenses">-0.00</p>
+          <p id="percentage">10%</p>
         </div>
       </div>
-    </section>
-    <section class="section-2">
-      <div class="container-2">
-        <div class="selectBtn">
-          <select id="operatorValue" onchange="toggleBudgetOperator()" property="">
-            <option value="+">+</option>
-            <option value="-">-</option>
-          </select>
-        </div>
-        <div id="plus" class="plus">
-            <input
-              id="Description"
-              type="text"
-              placeholder="Add description"
-              onkeydown="if(event.keyCode==13) getIncome();"
+    </div>
+  </section>
+  <section class="section-2">
+    <div class="container-2">
+      <div class="selectBtn">
+        <select id="operatorValue" onchange="toggleBudgetOperator()" property="">
+          <option value="+">+</option>
+          <option value="-">-</option>
+        </select>
+      </div>
+      <div id="plus" class="plus">
+        <input id="Description" type="text" placeholder="Add description"
+          onkeydown="if(event.keyCode==13) getIncome();" />
 
-            />
-
-            <input
-              id="Value"
-              type="number"
-              placeholder="Value"
-              onkeydown="if(event.keyCode==13) getIncome();"
-              
-        
-            />
-            <button onclick="getIncome()">
-              <svg class="checkmark-green" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
-                  <path class="checkmark__check" fill="none" d="M10 20l7 7 16-16"/>
-              </svg>
-          </button>
-        </div>
-
-        <div style="display: none;" id="minus" class="minus">
-            <input
-            id="Description-minus"
-            type="text"
-            placeholder="Add description"
-            onkeydown="if(event.keyCode==13) getExpenses();"
-
-          />
-          <input
-            id="Value-minus"
-            type="number"
-            placeholder="Value"
-            onkeydown="if(event.keyCode==13) getExpenses();"
-
-          />
-          <button onclick="getExpenses()">
-            <svg class="checkmark-red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
-                <path class="checkmark__check" fill="none" d="M10 20l7 7 16-16"/>
-            </svg>
+        <input id="Value" type="number" placeholder="Value" onkeydown="if(event.keyCode==13) getIncome();" />
+        <button onclick="getIncome()">
+          <svg class="checkmark-green" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+            <path class="checkmark__check" fill="none" d="M10 20l7 7 16-16" />
+          </svg>
         </button>
-        </div>
-    
       </div>
 
+      <div style="display: none;" id="minus" class="minus">
+        <input id="Description-minus" type="text" placeholder="Add description"
+          onkeydown="if(event.keyCode==13) getExpenses();" />
+        <input id="Value-minus" type="number" placeholder="Value" onkeydown="if(event.keyCode==13) getExpenses();" />
+        <button onclick="getExpenses()">
+          <svg class="checkmark-red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+            <path class="checkmark__check" fill="none" d="M10 20l7 7 16-16" />
+          </svg>
+        </button>
       </div>
-    </section>
-    <section class="section-3">
-      <div class="container-3">
-        <div id="income-list" class="income-list">
-          <h3>INCOME</h3>
-        </div>
-        <div id="expenses-list" class="expenses-list">
-          <h3>EXPENSES</h3>
-        </div>
+
+    </div>
+
+    </div>
+  </section>
+  <section class="section-3">
+    <div class="container-3">
+      <div id="income-list" class="income-list">
+        <h3>INCOME</h3>
+        <div class="income-div"></div>
       </div>
-    </section>
-    <script src="./my-budget.js"></script>
-  </body>
+      <div id="expenses-list" class="expenses-list">
+        <h3>EXPENSES</h3>
+        <div class="expenses-div"></div>
+      </div>
+    </div>
+  </section>
+  <script src="./my-budget.js"></script>
+</body>
+
 </html>

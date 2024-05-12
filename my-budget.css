@@ -1,18 +1,19 @@
-html{
+html {
     width: 100%;
     height: 100%;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     font-weight: lighter;
-    
+
 }
-body{
+
+body {
     width: 100%;
     height: 100%;
     margin: 0;
 }
 
-.container{
+.container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -22,32 +23,32 @@ body{
 }
 
 /* COMMENT */
-.section-1{
+.section-1 {
     width: 100%;
     height: 40vh;
 
     background-position: center;
-    background-repeat: no-repeat; 
-    background-size:cover; 
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(./images/image-budget.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(./images/image-budget.jpg);
 }
 
 /* COMMENT */
 
-h2{
+h2 {
     margin: 0;
     text-align: center;
     position: relative;
     top: 5%;
     color: white;
     font-size: 1.3rem;
-    
+
 
 }
 
 /* COMMENT */
 
-.current-budget{
+.current-budget {
     font-size: 40px;
     color: white;
     margin-bottom: 30px;
@@ -62,10 +63,10 @@ h2{
     background-color: rgb(6, 128, 137);
     justify-content: space-between;
     margin: 4px;
-    
+
 }
 
-.income-box p{
+.income-box p {
     padding: 4px;
     padding-left: 10px;
     color: white;
@@ -73,7 +74,7 @@ h2{
 }
 
 
-.income-box span{
+.income-box span {
     padding: 4px;
     padding-left: 10px;
     color: rgb(0, 0, 0);
@@ -81,10 +82,11 @@ h2{
 
 }
 
-#percentage{
+#percentage {
     background-color: rgb(203, 108, 97);
     margin-right: 10px;
 }
+
 /* COMMENT */
 
 .expenses-box {
@@ -97,14 +99,14 @@ h2{
     margin-bottom: 4px;
 }
 
-.expenses-box p{
+.expenses-box p {
     padding: 4px;
     padding-left: 10px;
     color: white;
 
 }
 
-.expenses-box span{
+.expenses-box span {
     padding: 4px;
     padding-left: 10px;
     color: rgb(0, 0, 0);
@@ -114,47 +116,47 @@ h2{
 
 /* COMMENT */
 
-.inner-expenses-box{
+.inner-expenses-box {
     display: flex;
 }
 
 /* Section 2  */
-.section-2{
+.section-2 {
     width: 100%;
     height: 8vh;
     border-bottom: rgb(220, 220, 220) solid;
     background-color: rgb(230, 230, 230);
 }
 
-.container-2{
+.container-2 {
     display: grid;
     grid-auto-flow: column;
     justify-content: center;
     gap: 0.5rem;
-    
+
 }
 
-#Value{
+#Value {
     padding-left: 10px;
     margin-top: 1rem;
     width: 8vh;
 }
 
-#Value-minus{
+#Value-minus {
     padding-left: 10px;
     margin-top: 1rem;
     width: 8vh;
 }
 
 
-#Description{
+#Description {
     padding-left: 10px;
     margin-top: 1rem;
     width: 35vh;
     height: 4vh;
 }
 
-#Description-minus{
+#Description-minus {
     padding-left: 10px;
     margin-top: 1rem;
     width: 35vh;
@@ -162,28 +164,29 @@ h2{
 }
 
 /* Operator */
-#operatorValue{
+#operatorValue {
     border: gray 1px solid;
     margin-top: 1.1rem;
 }
 
-.selectBtn select{
+.selectBtn select {
     margin-top: 0.6rem;
     padding: 0.75rem;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    
+
     /* Arrow */
     appearance: none;
-    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath fill='%23131313' d='M0 1.5L5 8.5 10 1.5z'/%3E%3C/svg%3E");    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath fill='%23131313' d='M0 1.5L5 8.5 10 1.5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
     background-position: right 0.7rem top 50%;
     background-size: 0.65rem auto;
-        
+
     width: 4rem;
     height: 2.5rem;
 
 }
 
-.plus{
+.plus {
     display: grid;
     grid-auto-flow: column;
     justify-content: center;
@@ -194,7 +197,7 @@ h2{
 .checkmark-green {
     width: 30px;
     height: 30px;
-    border:  1px solid;
+    border: 1px solid;
     border-radius: 50%;
     border-color: green;
     display: block;
@@ -203,12 +206,12 @@ h2{
     stroke-miterlimit: 10;
     stroke-dashoffset: 0;
     margin: 10% auto;
-  }
+}
 
-  .checkmark-red{
+.checkmark-red {
     width: 30px;
     height: 30px;
-    border:  1px solid;
+    border: 1px solid;
     border-radius: 50%;
     border-color: red;
     display: block;
@@ -217,21 +220,21 @@ h2{
     stroke-miterlimit: 10;
     stroke-dashoffset: 0;
     margin: 10% auto;
-  }
+}
 
-  button{
+button {
     margin-top: 1rem;
     background-color: transparent;
     border: none;
     outline: none !important;
-  }
+}
 
-.minus{  
+.minus {
     display: grid;
     grid-auto-flow: column;
     justify-content: center;
     gap: 0.8rem;
-   
+
 }
 
 
@@ -241,19 +244,40 @@ h2{
 /* Container 3  */
 
 
-.container-3{
+.container-3 {
     display: grid;
     grid-auto-flow: column;
     justify-content: center;
     gap: 50px;
 }
 
+.expenses-row {
+    display: flex;
+    justify-content: space-between;
 
-.income-list{
-    background-color: green;
 }
 
+.expenses-row svg {
+    display: none;
 
-.expenses-list{
-    background-color: red;
+}
+
+.expenses-row:hover svg {
+    display: block;
+
+}
+
+.income-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.income-row svg {
+    display: none;
+
+}
+
+.income-row:hover svg {
+    display: block;
+
 }
