@@ -90,7 +90,7 @@ function updateBudget() {
     let totalBudget = totalIncome - totalExpenses;
 
     let currentBudgetElement = document.querySelector(".current-budget");
-    currentBudgetElement.innerHTML = totalBudget.toFixed(2);
+    currentBudgetElement.innerHTML = totalBudget.toLocaleString('en-US',{minimumFractionDigits: 2, maximumFraction: 2});
     saveDataToLocalStorage();
 }
 
@@ -98,7 +98,7 @@ function updateTotalIncome() {
     let totalIncome = incomesArray.reduce((acc, income) => acc + parseFloat(income.amount), 0);
 
     let currentBudgetElement = document.querySelector("#income");
-    currentBudgetElement.innerHTML = totalIncome.toFixed(2);
+    currentBudgetElement.innerHTML = totalIncome.toLocaleString('en-US',{minimumFractionDigits: 2, maximumFraction: 2});
     saveDataToLocalStorage();
 }
 
@@ -106,7 +106,7 @@ function updateTotalExpenses() {
     let totalIncome = expensesArray.reduce((acc, expenses) => acc + parseFloat(expenses.amount), 0);
 
     let currentBudgetElement = document.querySelector("#expenses");
-    currentBudgetElement.innerHTML = totalIncome.toFixed(2);
+    currentBudgetElement.innerHTML = totalIncome.toLocaleString('en-US',{minimumFractionDigits: 2, maximumFraction: 2});
     saveDataToLocalStorage();
 }
 
@@ -181,15 +181,36 @@ function updateIncomeChart() {
 }
 
 function updatePresentage() {
-    let percentage = document.getElementById('percentage').innerText;
-    let totalExpenses = document.getElementById("expenses").innerText;
-    let totalIncome = document.getElementById("income").innerText;
-    percentage = totalExpenses / totalIncome * 100;
-    document.getElementById('percentage').innerText = percentage.toFixed(2) + '%'
+    let percentageText = document.getElementById('percentage').innerText;
+    let percentageNumber = parseFloat(percentageText);
 
-    console.log(percentage.toFixed(2));
+    if (isNaN(percentageNumber)) {
+        // If parsing fails, assign a default value, such as 0.
+        percentageNumber = 0;
+    }
 
+    let totalExpenses = parseFloat(document.getElementById("expenses").innerText);
+    let totalIncome = parseFloat(document.getElementById("income").innerText);
+    
+    if (isNaN(totalExpenses)) {
+        totalExpenses = 0;
+    }
+
+    if (isNaN(totalIncome)) {
+        totalIncome = 0;
+    }
+    
+    if (totalIncome === 0) {
+        percentageNumber = 0; // to avoid division by zero
+    } else {
+        percentageNumber = (totalExpenses / totalIncome) * 100;
+    }
+    
+    document.getElementById('percentage').innerText = percentageNumber.toLocaleString('en-US',{minimumFractionDigits: 2, maximumFraction: 2}); + '%';
+
+    console.log(percentageNumber);
 }
+
 
 
 function updateExpensesChart() {
