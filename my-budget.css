@@ -394,6 +394,23 @@ button {
     }
 }
 
+@media only screen and (width: 1024px) and (height: 1366px) {
+    .income-box {
+        width: 55%;
+        height: 15%;
+    }
+
+    .expenses-box {
+        width: 55%;
+        height: 15%;
+    }
+
+    .section-1 {
+        height: 30vh;
+    }
+}
+
+
 @media (width <=1000px) {
     .income-list {
         width: 20rem;
@@ -423,6 +440,40 @@ button {
         display: flex;
         width: 40%;
         height: 18%;
+
+    }
+}
+
+@media only screen and (width: 912px) and (height: 1368px) {
+    .income-box {
+        width: 55%;
+        height: 15%;
+    }
+
+    .expenses-box {
+        width: 55%;
+        height: 15%;
+    }
+
+    .section-1 {
+        height: 30vh;
+    }
+}
+
+
+@media only screen and (width: 820px) and (height: 1180px) {
+    .income-box {
+        width: 55%;
+        height: 15%;
+    }
+
+    .expenses-box {
+        width: 55%;
+        height: 15%;
+    }
+
+    .section-1 {
+        height: 30vh;
 
     }
 }
@@ -460,122 +511,291 @@ button {
         height: 18%;
 
     }
+}
 
-    @media (width <=720px) {
-        .container-3 {
-            gap: 2rem;
-        }
-
-        .income-list {
-            width: 30rem;
-
-
-        }
-
-        .expenses-list {
-            width: 30rem;
-
-        }
-
-        .income-box p {
-
-            margin-right: 4rem;
-
-        }
-
-
-
-        .income-box {
-            display: flex;
-            width: 60%;
-            height: 18%;
-
-        }
-
-
-        .expenses-box {
-            display: flex;
-            width: 60%;
-            height: 18%;
-
-        }
+@media only screen and (width: 768px) and (height: 1024px) {
+    .income-box {
+        width: 55%;
+        height: 15%;
     }
 
-    @media (width <=570px) {
-        #Description {
-            width: 25vh;
-        }
+    .expenses-box {
+        width: 55%;
+        height: 15%;
     }
 
-    @media (width <=530px) {
-        #Description {
-            width: 25vh;
-        }
+    .section-1 {
+        height: 35vh;
+    }
+}
 
-        .income-list {
-            width: 20rem;
-
-
-        }
-
-        .expenses-list {
-            width: 20rem;
-
-        }
+@media (width <=720px) {
+    .container-3 {
+        gap: 2rem;
     }
 
-    @media (width <=470px) {
-        #Description {
-            width: 15vh;
-        }
+    .income-list {
+        width: 30rem;
+
 
     }
 
-    @media (width <=450px) {
+    .expenses-list {
+        width: 30rem;
 
-        .income-list {
-            width: 15rem;
-
-
-        }
-
-        .expenses-list {
-            width: 15rem;
-
-        }
-
-        .income-box {
-            display: flex;
-            width: 80%;
-            height: 18%;
-
-        }
-
-
-        .expenses-box {
-            display: flex;
-            width: 80%;
-            height: 18%;
-
-        }
     }
 
-    @media (width <=375px) {
-        #Description {
-            width: 15vh;
-        }
+    .income-box p {
 
-        #operatorValue {
-            width: 0%;
-        }
+        margin-right: 4rem;
 
-        .selectBtn select {
-            padding-left: 1.3rem;
-        }
-
-        #Value {
-            width: 5vh;
-        }
     }
 
+
+
+    .income-box {
+        display: flex;
+        width: 60%;
+        height: 18%;
+
+    }
+
+
+    .expenses-box {
+        display: flex;
+        width: 60%;
+        height: 18%;
+
+    }
+}
+
+@media (width <=570px) {
+    #Description {
+        width: 25vh;
+    }
+
+    #Description-minus {
+        width: 25vh;
+    }
+}
+
+@media only screen and (width: 540px) and (height: 720px) {
+    .income-box {
+        width: 55%;
+        height: 17%;
+    }
+
+    .expenses-box {
+        width: 55%;
+        height: 17%;
+    }
+
+    .container {
+        flex-wrap: nowrap;
+    }
+
+    .container-3 {
+        margin-top: 2rem;
+    }
+
+    .current-budget {
+        margin-top: 40px;
+
+        margin-bottom: 10px;
+    }
+
+    .section-1 {
+        height: 40vh;
+    }
+
+    .section-2 {
+        height: 10vh;
+    }
+}
+
+@media (width <=530px) {
+    #Description {
+        width: 25vh;
+    }
+
+    #Description-minus {
+        width: 25vh;
+    }
+
+    .income-list {
+        width: 20rem;
+
+
+    }
+
+    .expenses-list {
+        width: 20rem;
+
+    }
+}
+
+@media (width <=470px) {
+    #Description {
+        width: 15vh;
+    }
+
+    #Description-minus {
+        width: 15vh;
+    }
+
+}
+
+@media (width <=450px) {
+
+    .income-list {
+        width: 15rem;
+
+
+    }
+
+    .expenses-list {
+        width: 15rem;
+
+    }
+
+    .income-box {
+        display: flex;
+        width: 80%;
+        height: 18%;
+
+    }
+
+
+    .expenses-box {
+        display: flex;
+        width: 80%;
+        height: 18%;
+
+    }
+}
+
+@media only screen and (width: 375px) and (height: 667px) {
+    .container {
+        flex-wrap: nowrap;
+
+    }
+
+    #Description {
+        width: 15vh;
+    }
+
+    #Description-minus {
+        width: 15vh;
+    }
+
+    #operatorValue {
+        width: 0%;
+    }
+
+    .selectBtn select {
+        padding-left: 1.3rem;
+    }
+
+    #Value {
+        width: 5vh;
+    }
+
+    #Value-minus {
+        width: 5vh;
+    }
+
+    .current-budget {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+
+    }
+
+    .section-2 {
+        height: 10vh;
+    }
+
+    .container-3 {
+
+        margin-top: 2rem;
+    }
+}
+
+@media only screen and (width: 360px) and (height: 740px) {
+    .container {
+        flex-wrap: nowrap;
+
+    }
+
+    #Description {
+        width: 15vh;
+    }
+
+    #Description-minus {
+        width: 15vh;
+    }
+
+    #operatorValue {
+        width: 0%;
+    }
+
+    .selectBtn select {
+        padding-left: 1.3rem;
+    }
+
+    #Value {
+        width: 5vh;
+    }
+
+    #Value-minus {
+        width: 5vh;
+    }
+
+    .current-budget {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+
+    }
+
+    .section-2 {
+        height: 10vh;
+    }
+
+    .container-3 {
+
+        margin-top: 2rem;
+    }
+}
+
+@media (width <=340px) {
+    #Description {
+        width: 14vh;
+        padding-left: 0.2rem;
+    }
+
+    #Description-minus {
+        width: 14vh;
+        padding-left: 0.2rem;
+    }
+
+
+    #Value {
+        width: 4vh;
+        padding-left: 0.1rem;
+    }
+
+    #Value-minus {
+        width: 4vh;
+        padding-left: 0.1rem;
+    }
+}
+
+@media (width <=317px) {
+    h2 {
+        font-size: 1rem;
+    }
+
+    .current-budget {
+        font-size: 3rem;
+
+    }
 }
