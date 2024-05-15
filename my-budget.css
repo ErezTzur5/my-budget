@@ -73,6 +73,19 @@ h2 {
     margin-right: 50px;
 }
 
+.income-list{
+    width: 35rem;
+}
+
+.income-list h3{
+    color: green !important;
+    font-weight: 400;
+    font-size: 20px;
+    border-bottom: 1px solid rgb(156, 155, 155);
+    padding-bottom: 15px
+
+}
+
 
 .income-box span {
     padding: 4px;
@@ -83,7 +96,7 @@ h2 {
 }
 
 #percentage {
-    background-color: rgb(203, 108, 97);
+    background-color: rgb(253, 85, 66);
     margin-right: 10px;
 }
 
@@ -93,7 +106,7 @@ h2 {
     display: flex;
     width: 28%;
     height: 18%;
-    background-color: rgb(204, 44, 52);
+    background-color: rgb(250, 48, 48);
     justify-content: space-between;
     margin: 4px;
     margin-bottom: 4px;
@@ -111,6 +124,19 @@ h2 {
     padding-left: 10px;
     color: rgb(0, 0, 0);
     align-self: center;
+
+}
+.expenses-list h3{
+    color: red !important;
+    font-weight: 400;
+    font-size: 20px;
+    border-bottom: 1px solid rgb(156, 155, 155);
+    padding-bottom: 15px
+
+}
+.expenses-list{
+    width: 35rem;
+   
 
 }
 
@@ -153,14 +179,16 @@ h2 {
     padding-left: 10px;
     margin-top: 1rem;
     width: 35vh;
-    height: 4vh;
+    
 }
+
+
 
 #Description-minus {
     padding-left: 10px;
     margin-top: 1rem;
     width: 35vh;
-    height: 4vh;
+    
 }
 
 /* Operator */
@@ -245,16 +273,32 @@ button {
 
 
 .container-3 {
-    display: grid;
-    grid-auto-flow: column;
-    justify-content: center;
-    gap: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 4rem;
+    /* gap: 50px; */
 }
 
 .expenses-row {
     display: flex;
     justify-content: space-between;
 
+}
+
+.expensesAmountRow{
+    color: red;
+    font-weight:400;
+    padding-right: 10px;
+}
+
+.incomeAmountRow{
+    color: green;
+    font-weight:400;
+    padding-right: 10px;
+}
+
+.grow{
+    flex-grow: 1; 
 }
 
 .expenses-row svg {
@@ -266,10 +310,27 @@ button {
     display: block;
 
 }
+.expenses-row {
+    display: flex;
+    font-weight: 400;
+    font-size: 20px;
+    border-bottom: 1px solid rgb(156, 155, 155);
+    padding-bottom: 13px;
+    gap: 2px;
+}
+
+
+.income-row:hover svg {
+    display: block;
+
+}
 
 .income-row {
     display: flex;
-    justify-content: space-between;
+    font-weight: 400;
+    font-size: 20px;
+    border-bottom: 1px solid rgb(156, 155, 155);
+    padding-bottom: 13px
 }
 
 .income-row svg {
@@ -280,4 +341,13 @@ button {
 .income-row:hover svg {
     display: block;
 
+}
+
+
+.presentageRow{
+    background-color: rgb(248, 197, 191);
+    color:red !important;
+    font-size: 13px;
+    align-self: center;
+    padding: 5px;
 }

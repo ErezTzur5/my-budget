@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Budget</title>
 
-  <link rel="stylesheet" type="text/css" href="./my-budget.css" />
+  <link rel="stylesheet" type="text/css" href="/my-budget.css" />
 </head>
 
 <body>
@@ -31,16 +31,16 @@
   <section class="section-2">
     <div class="container-2">
       <div class="selectBtn">
-        <select id="operatorValue" onchange="toggleBudgetOperator()" property="">
+        <select id="operatorValue" onblur="resetBorderValue(value)" onclick="borderValue(value)" onchange="toggleBudgetOperator()" property="">
           <option value="+">+</option>
           <option value="-">-</option>
         </select>
       </div>
       <div id="plus" class="plus">
-        <input id="Description" type="text" placeholder="Add description"
+        <input id="Description" onblur="resetBorder(id)" onclick="borderColor(id)" type="text" placeholder="Add description"
           onkeydown="if(event.keyCode==13) getIncome();" />
 
-        <input id="Value" type="number" placeholder="Value" onkeydown="if(event.keyCode==13) getIncome();" />
+        <input id="Value" onblur="resetBorder(id)" onclick="borderColor(id)" type="number" placeholder="Value" onkeydown="if(event.keyCode==13) getIncome();" />
         <button onclick="getIncome()">
           <svg class="checkmark-green" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
             <path class="checkmark__check" fill="none" d="M10 20l7 7 16-16" />
@@ -49,9 +49,9 @@
       </div>
 
       <div style="display: none;" id="minus" class="minus">
-        <input id="Description-minus" type="text" placeholder="Add description"
+        <input id="Description-minus" onblur="resetBorder(id)" onclick="borderColor(id)" type="text" placeholder="Add description"
           onkeydown="if(event.keyCode==13) getExpenses();" />
-        <input id="Value-minus" type="number" placeholder="Value" onkeydown="if(event.keyCode==13) getExpenses();" />
+        <input id="Value-minus" onblur="resetBorder(id)" onclick="borderColor(id)" type="number" placeholder="Value" onkeydown="if(event.keyCode==13) getExpenses();" />
         <button onclick="getExpenses()">
           <svg class="checkmark-red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
             <path class="checkmark__check" fill="none" d="M10 20l7 7 16-16" />

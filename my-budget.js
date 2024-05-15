@@ -2,6 +2,8 @@ const dateArray = { month: '', year: '' }
 let incomesArray = JSON.parse(localStorage.getItem('incomesArray')) || [];
 let expensesArray = JSON.parse(localStorage.getItem('expensesArray')) || [];
 
+
+
 window.onload = function () {
     loadDataFromLocalStorage();
     updateBudget();
@@ -10,6 +12,7 @@ window.onload = function () {
     updateIncomeChart();
     updateExpensesChart();
     updatePresentage();
+    
 
 };
 
@@ -44,6 +47,12 @@ document.querySelector(".current-budget").innerHTML = "-0.00"; function getDate(
 function getIncome() {
 
     var amount = document.getElementById("Value").value;
+    var regex = /^[\+\-\*\/\s\(\)]+$/;
+    if (regex.test(amount)) {
+        alert("Please enter a valid number.");
+        return;
+    }
+
     var description = document.getElementById("Description").value;
     if (description.trim() === "" || amount.trim() === "") {
         alert("Please fill in both description and value.");
@@ -57,6 +66,7 @@ function getIncome() {
     updateIncomeChart();
     updateTotalIncome();
     updatePresentage();
+    updateExpensesChart();
 
 
     return incomesArray
@@ -88,9 +98,20 @@ function updateBudget() {
     let totalIncome = incomesArray.reduce((acc, income) => acc + parseFloat(income.amount), 0);
     let totalExpenses = expensesArray.reduce((acc, expense) => acc + parseFloat(expense.amount), 0);
     let totalBudget = totalIncome - totalExpenses;
+    console.log(totalBudget);
+    if (totalBudget >=0 ) {
+        let currentBudgetElement = document.querySelector(".current-budget");
+        currentBudgetElement.innerHTML = '+' + totalBudget.toLocaleString('en-US',{minimumFractionDigits: 2, maximumFraction: 2});
 
-    let currentBudgetElement = document.querySelector(".current-budget");
-    currentBudgetElement.innerHTML = totalBudget.toLocaleString('en-US',{minimumFractionDigits: 2, maximumFraction: 2});
+        
+    }
+    else {
+        let currentBudgetElement = document.querySelector(".current-budget");
+        currentBudgetElement.innerHTML = totalBudget.toLocaleString('en-US',{minimumFractionDigits: 2, maximumFraction: 2});
+    }
+
+    // let currentBudgetElement = document.querySelector(".current-budget");
+    // currentBudgetElement.innerHTML = totalBudget.toLocaleString('en-US',{minimumFractionDigits: 2, maximumFraction: 2});
     saveDataToLocalStorage();
 }
 
@@ -98,15 +119,17 @@ function updateTotalIncome() {
     let totalIncome = incomesArray.reduce((acc, income) => acc + parseFloat(income.amount), 0);
 
     let currentBudgetElement = document.querySelector("#income");
-    currentBudgetElement.innerHTML = totalIncome.toLocaleString('en-US',{minimumFractionDigits: 2, maximumFraction: 2});
+    currentBudgetElement.innerHTML = '+ ' + totalIncome.toLocaleString('en-US',{minimumFractionDigits: 2, maximumFraction: 2});
     saveDataToLocalStorage();
 }
 
 function updateTotalExpenses() {
     let totalIncome = expensesArray.reduce((acc, expenses) => acc + parseFloat(expenses.amount), 0);
 
-    let currentBudgetElement = document.querySelector("#expenses");
-    currentBudgetElement.innerHTML = totalIncome.toLocaleString('en-US',{minimumFractionDigits: 2, maximumFraction: 2});
+    let currentBudgetElement = document.getElementById("expenses");
+    
+    console.log('wqe',currentBudgetElement);
+    currentBudgetElement.innerHTML = '- '+ totalIncome.toLocaleString('en-US',{minimumFractionDigits: 2, maximumFraction: 2});
     saveDataToLocalStorage();
 }
 
@@ -117,11 +140,20 @@ function updateIncomeChart() {
 
 
     incomesArray.forEach((item, index) => {
+        
 
         // Create a new paragraph for each item
         const newRow = document.createElement("p");
         newRow.classList.add("income-row");
-        newRow.textContent = `${item.description} ${item.amount}`;
+        newRow.innerHTML += `<span class="grow">${item.description}</span>`;
+        var amountSpan = document.createElement('span');
+        var amount = parseFloat(item.amount);
+        var formattedAmount = amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        var formattedWithMinusSign = (amount < 0 ? '+' : '') + formattedAmount;
+
+        amountSpan.textContent = '+' + formattedWithMinusSign;
+        amountSpan.classList.add('incomeAmountRow');
+        newRow.appendChild(amountSpan);
 
         // Create the SVG element
         const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -189,8 +221,9 @@ function updatePresentage() {
         percentageNumber = 0;
     }
 
-    let totalExpenses = parseFloat(document.getElementById("expenses").innerText);
-    let totalIncome = parseFloat(document.getElementById("income").innerText);
+    let totalExpenses = parseFloat(document.getElementById("expenses").innerText.replace(/[^\d.-]/g, ''));
+    // let totalIncome = parseFloat(document.getElementById("income").innerText);
+    let totalIncome = parseFloat(document.getElementById("income").innerText.replace(/[^\d.-]/g, ''));
     
     if (isNaN(totalExpenses)) {
         totalExpenses = 0;
@@ -203,27 +236,51 @@ function updatePresentage() {
     if (totalIncome === 0) {
         percentageNumber = 0; // to avoid division by zero
     } else {
-        percentageNumber = (totalExpenses / totalIncome) * 100;
+        percentageNumber = ((totalExpenses / totalIncome) * 100)*-1;
     }
     
-    document.getElementById('percentage').innerText = percentageNumber.toLocaleString('en-US',{minimumFractionDigits: 2, maximumFraction: 2}); + '%';
+    document.getElementById('percentage').innerText = percentageNumber.toFixed(2) + '%';
 
-    console.log(percentageNumber);
+    
 }
-
 
 
 function updateExpensesChart() {
     const container = document.querySelector(".expenses-div");
     container.innerHTML = "";
+    
 
 
     expensesArray.forEach((item, index) => {
+        let totalIncome = parseFloat(document.getElementById("income").innerText.replace(/[^\d.-]/g, ''));
+
+        let percentageRow = 0;
+        percentageRow = item.amount / totalIncome * 100;
+        if (percentageRow === Infinity){
+            percentageRow = 0;
+        }
+
 
         // Create a new paragraph for each item
         const newRow = document.createElement("p");
         newRow.classList.add("expenses-row");
-        newRow.textContent = `${item.description} ${item.amount}`;
+        newRow.innerHTML += `<span class="grow">${item.description}</span>`;
+
+        var amountSpan = document.createElement('span');
+        var amount = parseFloat(item.amount);
+        var formattedAmount = amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        var formattedWithMinusSign = (amount < 0 ? '-' : '') + formattedAmount;
+
+        amountSpan.textContent = '-' + formattedWithMinusSign;
+        amountSpan.classList.add('expensesAmountRow');
+        newRow.appendChild(amountSpan);
+
+        var percentageSpan = document.createElement('span');
+        
+        percentageSpan.textContent = percentageRow.toFixed(2) + '%';
+        percentageSpan.classList.add('presentageRow');
+        newRow.appendChild(percentageSpan);
+
 
         // Create the SVG element
         const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -251,6 +308,7 @@ function updateExpensesChart() {
         svgElement.appendChild(circle);
         svgElement.appendChild(path);
 
+        
         // Add an onclick event to the SVG
         svgElement.onclick = function () {
             // Remove the parent div element when the SVG is clicked
@@ -284,7 +342,7 @@ function toggleBudgetOperator() {
     const plus = document.getElementById('plus');
     const minus = document.getElementById('minus');
     let operatorValue = document.getElementById('operatorValue').value;
-    console.log(operatorValue);
+    
     if (operatorValue === '+') {
         plus.style.display = "grid";
         minus.style.display = "none";
@@ -303,11 +361,55 @@ function saveDataToLocalStorage() {
 }
 function loadDataFromLocalStorage() {
     incomesArray = JSON.parse(localStorage.getItem('incomes')) || [];
-    console.log(incomesArray)
     expensesArray = JSON.parse(localStorage.getItem('expenses')) || [];
-    // Load other data
+}
+
+function borderColor(elementId) {
+    
+    document.getElementById(elementId).style.outline = "none";
+    document.getElementById(elementId).style.border = "solid green";
+    document.getElementById(elementId).style.borderWidth= "3px";
+    if (elementId === 'Description-minus') {
+        document.getElementById(elementId).style.outline = "none";
+        document.getElementById(elementId).style.border = "solid red";        
+        document.getElementById(elementId).style.borderWidth= "3px";
+    }
+    if (elementId === 'Value-minus') {
+        document.getElementById(elementId).style.outline = "none";
+        document.getElementById(elementId).style.border = "solid red";        
+        document.getElementById(elementId).style.borderWidth= "3px";
+    }
+   
+}
+
+function resetBorder(elementId) {
+    document.getElementById(elementId).style.borderColor = "";
+    document.getElementById(elementId).style.outline = "none";
+    document.getElementById(elementId).style.borderWidth= "1px";
+}
+function borderValue(operatorValue) {
+    if (operatorValue === '+') {
+        
+        document.getElementById("operatorValue").style.outline = "none";
+        document.getElementById("operatorValue").style.border = "solid green";        
+        document.getElementById("operatorValue").style.borderWidth= "3px";
+    }
+
+    if (operatorValue === '-') {
+
+        document.getElementById("operatorValue").style.outline = "none";
+        document.getElementById("operatorValue").style.border = "solid red";        
+        document.getElementById("operatorValue").style.borderWidth= "3px";
+    }
 
 }
+
+function resetBorderValue(operatorValue) {
+    document.getElementById("operatorValue").style.borderColor = "";
+    document.getElementById("operatorValue").style.outline = "none";
+    document.getElementById("operatorValue").style.borderWidth= "1px";
+}
+
 
 
 
