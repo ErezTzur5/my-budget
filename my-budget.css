@@ -14,6 +14,7 @@ body {
 }
 
 .container {
+    flex-wrap: wrap;
     width: 100%;
     height: 100%;
     display: flex;
@@ -63,31 +64,32 @@ h2 {
     height: 18%;
     background-color: rgb(6, 128, 137);
     justify-content: space-between;
+    align-items: center;
     margin: 4px;
 
 }
 
 .income-box p {
-    font-size:large;
-    font-weight:450;
+    font-size: large;
+    font-weight: 450;
     padding: 4px;
     padding-left: 10px;
     color: white;
-    margin-right: 90px;
+    margin-right: 5rem;
 }
 
-.income-list{
+.income-list {
     width: 35rem;
 }
 
-.income-list h3{
+.income-list h3 {
     color: green !important;
     font-weight: 400;
     font-size: 20px;
     border-bottom: 1px solid rgb(156, 155, 155);
     padding-bottom: 15px;
     margin: 0;
-    
+
 
 }
 
@@ -103,6 +105,7 @@ h2 {
 #percentage {
     background-color: rgb(253, 85, 66);
     margin-right: 10px;
+
 }
 
 /* COMMENT */
@@ -113,13 +116,14 @@ h2 {
     height: 18%;
     background-color: rgb(250, 48, 48);
     justify-content: space-between;
+    align-items: center;
     margin: 4px;
     margin-bottom: 4px;
 }
 
 .expenses-box p {
-    font-size:large;
-    font-weight:450;
+    font-size: large;
+    font-weight: 450;
     padding: 4px;
     padding-left: 10px;
     color: white;
@@ -133,7 +137,8 @@ h2 {
     align-self: center;
 
 }
-.expenses-list h3{
+
+.expenses-list h3 {
     color: red !important;
     font-weight: 400;
     font-size: 20px;
@@ -142,9 +147,10 @@ h2 {
     margin: 0;
 
 }
-.expenses-list{
+
+.expenses-list {
     width: 35rem;
-   
+
 
 }
 
@@ -163,8 +169,8 @@ h2 {
 }
 
 .container-2 {
-    display: grid;
-    grid-auto-flow: column;
+    flex-wrap: wrap;
+    display: flex;
     justify-content: center;
     gap: 0.5rem;
 
@@ -187,7 +193,7 @@ h2 {
     padding-left: 10px;
     margin-top: 1rem;
     width: 35vh;
-    
+
 }
 
 
@@ -196,7 +202,7 @@ h2 {
     padding-left: 10px;
     margin-top: 1rem;
     width: 35vh;
-    
+
 }
 
 /* Operator */
@@ -207,6 +213,7 @@ h2 {
 
 .selectBtn select {
     margin-top: 0.6rem;
+
     padding: 0.75rem;
     border: 1px solid rgba(0, 0, 0, 0.1);
 
@@ -281,6 +288,7 @@ button {
 
 
 .container-3 {
+    flex-wrap: wrap;
     display: flex;
     justify-content: space-evenly;
     margin-top: 4rem;
@@ -293,22 +301,22 @@ button {
 
 }
 
-.expensesAmountRow{
+.expensesAmountRow {
     color: red;
-    font-weight:400;
+    font-weight: 400;
     padding-right: 10px;
 }
 
-.incomeAmountRow{
+.incomeAmountRow {
     color: green;
-    font-weight:400;
-    padding:0.6rem
+    font-weight: 400;
+    padding: 0.6rem
 }
 
-.grow{
-    
+.grow {
+
     padding: 0.4rem;
-    flex-grow: 1; 
+    flex-grow: 1;
 }
 
 .expenses-row svg {
@@ -320,6 +328,7 @@ button {
     display: block;
 
 }
+
 .expenses-row {
     margin: 0;
     align-items: flex-end;
@@ -358,9 +367,9 @@ button {
 }
 
 
-.presentageRow{
+.presentageRow {
     background-color: rgb(248, 197, 191);
-    color:red !important;
+    color: red !important;
     font-size: 13px;
     align-self: center;
     padding: 5px;
@@ -368,7 +377,205 @@ button {
     margin-right: 0.8rem;
 }
 
-.income-row-gray{
+.income-row-gray {
     margin: 0;
     background-color: rgba(207, 201, 201, 0.242);
+}
+
+@media (width <=1315px) {
+    .income-list {
+        width: 28rem;
+
+    }
+
+    .expenses-list {
+        width: 28rem;
+
+    }
+}
+
+@media (width <=1000px) {
+    .income-list {
+        width: 20rem;
+
+    }
+
+    .expenses-list {
+        width: 20rem;
+
+    }
+
+    .income-box p {
+        margin-right: 4rem;
+    }
+
+
+
+    .income-box {
+        display: flex;
+        width: 40%;
+        height: 18%;
+
+    }
+
+
+    .expenses-box {
+        display: flex;
+        width: 40%;
+        height: 18%;
+
+    }
+}
+
+@media (width <=800px) {
+    .income-list {
+        width: 20rem;
+
+    }
+
+    .expenses-list {
+        width: 20rem;
+
+    }
+
+    .income-box p {
+
+        margin-right: 4rem;
+
+    }
+
+
+
+    .income-box {
+        display: flex;
+        width: 40%;
+        height: 18%;
+
+    }
+
+
+    .expenses-box {
+        display: flex;
+        width: 40%;
+        height: 18%;
+
+    }
+
+    @media (width <=720px) {
+        .container-3 {
+            gap: 2rem;
+        }
+
+        .income-list {
+            width: 30rem;
+
+
+        }
+
+        .expenses-list {
+            width: 30rem;
+
+        }
+
+        .income-box p {
+
+            margin-right: 4rem;
+
+        }
+
+
+
+        .income-box {
+            display: flex;
+            width: 60%;
+            height: 18%;
+
+        }
+
+
+        .expenses-box {
+            display: flex;
+            width: 60%;
+            height: 18%;
+
+        }
+    }
+
+    @media (width <=570px) {
+        #Description {
+            width: 25vh;
+        }
+    }
+
+    @media (width <=530px) {
+        #Description {
+            width: 25vh;
+        }
+
+        .income-list {
+            width: 20rem;
+
+
+        }
+
+        .expenses-list {
+            width: 20rem;
+
+        }
+    }
+
+    @media (width <=470px) {
+        #Description {
+            width: 15vh;
+        }
+
+    }
+
+    @media (width <=450px) {
+
+        .income-list {
+            width: 15rem;
+
+
+        }
+
+        .expenses-list {
+            width: 15rem;
+
+        }
+
+        .income-box {
+            display: flex;
+            width: 80%;
+            height: 18%;
+
+        }
+
+
+        .expenses-box {
+            display: flex;
+            width: 80%;
+            height: 18%;
+
+        }
+    }
+
+    @media (width <=375px) {
+        #Description {
+            width: 15vh;
+        }
+
+        #operatorValue {
+            width: 0%;
+        }
+
+        .selectBtn select {
+            padding-left: 1.3rem;
+        }
+
+        #Value {
+            width: 5vh;
+        }
+    }
+
 }
