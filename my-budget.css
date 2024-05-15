@@ -41,7 +41,8 @@ h2 {
     position: relative;
     top: 5%;
     color: white;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    font-weight: lighter;
 
 
 }
@@ -49,7 +50,7 @@ h2 {
 /* COMMENT */
 
 .current-budget {
-    font-size: 40px;
+    font-size: 3.5rem;
     color: white;
     margin-bottom: 30px;
 }
@@ -67,10 +68,12 @@ h2 {
 }
 
 .income-box p {
+    font-size:large;
+    font-weight:450;
     padding: 4px;
     padding-left: 10px;
     color: white;
-    margin-right: 50px;
+    margin-right: 90px;
 }
 
 .income-list{
@@ -82,7 +85,9 @@ h2 {
     font-weight: 400;
     font-size: 20px;
     border-bottom: 1px solid rgb(156, 155, 155);
-    padding-bottom: 15px
+    padding-bottom: 15px;
+    margin: 0;
+    
 
 }
 
@@ -113,10 +118,12 @@ h2 {
 }
 
 .expenses-box p {
+    font-size:large;
+    font-weight:450;
     padding: 4px;
     padding-left: 10px;
     color: white;
-
+    margin-right: 10px;
 }
 
 .expenses-box span {
@@ -131,7 +138,8 @@ h2 {
     font-weight: 400;
     font-size: 20px;
     border-bottom: 1px solid rgb(156, 155, 155);
-    padding-bottom: 15px
+    padding-bottom: 15px;
+    margin: 0;
 
 }
 .expenses-list{
@@ -229,7 +237,7 @@ h2 {
     border-radius: 50%;
     border-color: green;
     display: block;
-    stroke-width: 2;
+    stroke-width: 1;
     stroke: green;
     stroke-miterlimit: 10;
     stroke-dashoffset: 0;
@@ -243,7 +251,7 @@ h2 {
     border-radius: 50%;
     border-color: red;
     display: block;
-    stroke-width: 2;
+    stroke-width: 1;
     stroke: red;
     stroke-miterlimit: 10;
     stroke-dashoffset: 0;
@@ -294,10 +302,12 @@ button {
 .incomeAmountRow{
     color: green;
     font-weight:400;
-    padding-right: 10px;
+    padding:0.6rem
 }
 
 .grow{
+    
+    padding: 0.4rem;
     flex-grow: 1; 
 }
 
@@ -311,6 +321,8 @@ button {
 
 }
 .expenses-row {
+    margin: 0;
+    align-items: flex-end;
     display: flex;
     font-weight: 400;
     font-size: 20px;
@@ -326,6 +338,8 @@ button {
 }
 
 .income-row {
+    margin: 0;
+    align-items: flex-end;
     display: flex;
     font-weight: 400;
     font-size: 20px;
@@ -350,4 +364,11 @@ button {
     font-size: 13px;
     align-self: center;
     padding: 5px;
+    margin-top: 1rem;
+    margin-right: 0.8rem;
+}
+
+.income-row-gray{
+    margin: 0;
+    background-color: rgba(207, 201, 201, 0.242);
 }

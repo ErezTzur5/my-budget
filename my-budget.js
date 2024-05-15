@@ -37,7 +37,7 @@ document.querySelector(".current-budget").innerHTML = "-0.00"; function getDate(
     dateArray.year = currentDate.getFullYear();
 
     h2Welcome = document.getElementById("date")
-    h2Welcome.innerHTML = (`available budget in ${dateArray.month} ${dateArray.year}:`)
+    h2Welcome.innerHTML = (`Available Budget in ${dateArray.month} ${dateArray.year}:`)
 
 
     return dateArray
@@ -68,6 +68,9 @@ function getIncome() {
     updatePresentage();
     updateExpensesChart();
 
+    //RESET Values:
+    document.getElementById("Value").value = "";
+    document.getElementById("Description").value = "";
 
     return incomesArray
 
@@ -88,7 +91,9 @@ function getExpenses() {
     updateExpensesChart();
     updateTotalExpenses();
     updatePresentage();
-
+    //RESET Values:
+    document.getElementById("Value-minus").value = "";
+    document.getElementById("Description-minus").value = "";
     return expensesArray;
 }
 
@@ -140,12 +145,16 @@ function updateIncomeChart() {
 
 
     incomesArray.forEach((item, index) => {
+
         
 
         // Create a new paragraph for each item
         const newRow = document.createElement("p");
+        if (index % 2 !== 0) {
+            newRow.classList.add("income-row-gray");
+        }
         newRow.classList.add("income-row");
-        newRow.innerHTML += `<span class="grow">${item.description}</span>`;
+        newRow.innerHTML += `<span class="grow">${item.description.charAt(0).toUpperCase() + item.description.slice(1)}</span>`;
         var amountSpan = document.createElement('span');
         var amount = parseFloat(item.amount);
         var formattedAmount = amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -159,7 +168,7 @@ function updateIncomeChart() {
         const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svgElement.setAttribute("xmlns", "http://www.w3.org/2000/svg");
         svgElement.setAttribute("width", "20");
-        svgElement.setAttribute("height", "20");
+        svgElement.setAttribute("height", "40");
         svgElement.setAttribute("class", "bi bi-x-circle-expenses");
         svgElement.setAttribute("viewBox", "0 0 16 16");
 
@@ -170,7 +179,7 @@ function updateIncomeChart() {
         circle.setAttribute("r", "7.5");
         circle.setAttribute("fill", "none");
         circle.setAttribute("stroke", "green");
-        circle.setAttribute("stroke-width", "2");
+        circle.setAttribute("stroke-width", "1");
 
         // Create and set the path for the SVG (for the X symbol)
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -263,8 +272,11 @@ function updateExpensesChart() {
 
         // Create a new paragraph for each item
         const newRow = document.createElement("p");
+        if (index % 2 !== 0) {
+            newRow.classList.add("income-row-gray");
+        }
         newRow.classList.add("expenses-row");
-        newRow.innerHTML += `<span class="grow">${item.description}</span>`;
+        newRow.innerHTML += `<span class="grow">${item.description.charAt(0).toUpperCase() + item.description.slice(1)}</span>`;
 
         var amountSpan = document.createElement('span');
         var amount = parseFloat(item.amount);
@@ -286,7 +298,7 @@ function updateExpensesChart() {
         const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svgElement.setAttribute("xmlns", "http://www.w3.org/2000/svg");
         svgElement.setAttribute("width", "20");
-        svgElement.setAttribute("height", "20");
+        svgElement.setAttribute("height", "30");
         svgElement.setAttribute("class", "bi bi-x-circle-expenses");
         svgElement.setAttribute("viewBox", "0 0 16 16");
 
@@ -297,7 +309,7 @@ function updateExpensesChart() {
         circle.setAttribute("r", "7.5");
         circle.setAttribute("fill", "none");
         circle.setAttribute("stroke", "red");
-        circle.setAttribute("stroke-width", "2");
+        circle.setAttribute("stroke-width", "1");
 
         // Create and set the path for the SVG (for the X symbol)
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
