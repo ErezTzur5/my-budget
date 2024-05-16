@@ -1,3 +1,7 @@
+function myProject() {
+    saveDataToLocalStorage();
+    loadDataFromLocalStorage();
+}
 const dateArray = { month: '', year: '' }
 let incomesArray = JSON.parse(localStorage.getItem('incomesArray')) || [];
 let expensesArray = JSON.parse(localStorage.getItem('expensesArray')) || [];
@@ -367,19 +371,6 @@ function toggleBudgetOperator() {
     }
 }
 
-// localstorage save function.
-function saveDataToLocalStorage() {
-    localStorage.setItem('incomes', JSON.stringify(incomesArray));
-    localStorage.setItem('expenses', JSON.stringify(expensesArray));
- 
-
-}
-
-// localstorage get function.
-function loadDataFromLocalStorage() {
-    incomesArray = JSON.parse(localStorage.getItem('incomes')) || [];
-    expensesArray = JSON.parse(localStorage.getItem('expenses')) || [];
-}
 
 //Description and value cssing.
 
