@@ -2,6 +2,7 @@ function myProject() {
     saveDataToLocalStorage();
     loadDataFromLocalStorage();
 }
+
 const dateArray = { month: '', year: '' }
 let incomesArray = JSON.parse(localStorage.getItem('incomesArray')) || [];
 let expensesArray = JSON.parse(localStorage.getItem('expensesArray')) || [];
@@ -50,7 +51,11 @@ document.querySelector(".current-budget").innerHTML = "-0.00"; function getDate(
 // get the description and amount for incomes.
 function getIncome() {
 
+
     var amount = document.getElementById("Value").value;
+    amount = amount.replace(/[^0-9]/g, '');
+    console.log(amount);
+
     var regex = /^[\+\-\*\/\s\(\)]+$/;
     if (regex.test(amount)) {
         alert("Please enter a valid number.");
@@ -107,7 +112,6 @@ function updateBudget() {
     let totalIncome = incomesArray.reduce((acc, income) => acc + parseFloat(income.amount), 0);
     let totalExpenses = expensesArray.reduce((acc, expense) => acc + parseFloat(expense.amount), 0);
     let totalBudget = totalIncome - totalExpenses;
-    console.log(totalBudget);
     if (totalBudget >=0 ) {
         let currentBudgetElement = document.querySelector(".current-budget");
         currentBudgetElement.innerHTML = '+' + totalBudget.toLocaleString('en-US',{minimumFractionDigits: 2, maximumFraction: 2});
@@ -137,7 +141,6 @@ function updateTotalExpenses() {
 
     let currentBudgetElement = document.getElementById("expenses");
     
-    console.log('wqe',currentBudgetElement);
     currentBudgetElement.innerHTML = '- '+ totalIncome.toLocaleString('en-US',{minimumFractionDigits: 2, maximumFraction: 2});
     saveDataToLocalStorage();
 }
