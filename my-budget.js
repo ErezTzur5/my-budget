@@ -3,7 +3,7 @@ let incomesArray = JSON.parse(localStorage.getItem('incomesArray')) || [];
 let expensesArray = JSON.parse(localStorage.getItem('expensesArray')) || [];
 
 
-
+// ensures that the code inside the function will run only after the entire webpage has loaded.
 window.onload = function () {
     loadDataFromLocalStorage();
     updateBudget();
@@ -12,11 +12,10 @@ window.onload = function () {
     updateIncomeChart();
     updateExpensesChart();
     updatePresentage();
-    
 
 };
 
-
+// getting the month and year data.
 document.querySelector(".current-budget").innerHTML = "-0.00"; function getDate() {
     // Create a new Date object
     var currentDate = new Date();
@@ -44,6 +43,7 @@ document.querySelector(".current-budget").innerHTML = "-0.00"; function getDate(
 
 }
 
+// get the description and amount for incomes.
 function getIncome() {
 
     var amount = document.getElementById("Value").value;
@@ -76,7 +76,7 @@ function getIncome() {
 
 }
 
-
+// get the description and amount for expenses.
 function getExpenses() {
 
     var amount = document.getElementById("Value-minus").value;
@@ -97,7 +97,7 @@ function getExpenses() {
     return expensesArray;
 }
 
-
+// updating the budget.
 function updateBudget() {
 
     let totalIncome = incomesArray.reduce((acc, income) => acc + parseFloat(income.amount), 0);
@@ -115,11 +115,11 @@ function updateBudget() {
         currentBudgetElement.innerHTML = totalBudget.toLocaleString('en-US',{minimumFractionDigits: 2, maximumFraction: 2});
     }
 
-    // let currentBudgetElement = document.querySelector(".current-budget");
-    // currentBudgetElement.innerHTML = totalBudget.toLocaleString('en-US',{minimumFractionDigits: 2, maximumFraction: 2});
+
     saveDataToLocalStorage();
 }
 
+// updating the total incomes in their box.
 function updateTotalIncome() {
     let totalIncome = incomesArray.reduce((acc, income) => acc + parseFloat(income.amount), 0);
 
@@ -127,7 +127,7 @@ function updateTotalIncome() {
     currentBudgetElement.innerHTML = '+ ' + totalIncome.toLocaleString('en-US',{minimumFractionDigits: 2, maximumFraction: 2});
     saveDataToLocalStorage();
 }
-
+// updating the total expenses in their box.
 function updateTotalExpenses() {
     let totalIncome = expensesArray.reduce((acc, expenses) => acc + parseFloat(expenses.amount), 0);
 
@@ -138,7 +138,7 @@ function updateTotalExpenses() {
     saveDataToLocalStorage();
 }
 
-
+// updating the income chart.
 function updateIncomeChart() {
     const container = document.querySelector(".income-div");
     container.innerHTML = "";
@@ -221,39 +221,7 @@ function updateIncomeChart() {
     });
 }
 
-function updatePresentage() {
-    let percentageText = document.getElementById('percentage').innerText;
-    let percentageNumber = parseFloat(percentageText);
-
-    if (isNaN(percentageNumber)) {
-        // If parsing fails, assign a default value, such as 0.
-        percentageNumber = 0;
-    }
-
-    let totalExpenses = parseFloat(document.getElementById("expenses").innerText.replace(/[^\d.-]/g, ''));
-    // let totalIncome = parseFloat(document.getElementById("income").innerText);
-    let totalIncome = parseFloat(document.getElementById("income").innerText.replace(/[^\d.-]/g, ''));
-    
-    if (isNaN(totalExpenses)) {
-        totalExpenses = 0;
-    }
-
-    if (isNaN(totalIncome)) {
-        totalIncome = 0;
-    }
-    
-    if (totalIncome === 0) {
-        percentageNumber = 0; // to avoid division by zero
-    } else {
-        percentageNumber = ((totalExpenses / totalIncome) * 100)*-1;
-    }
-    
-    document.getElementById('percentage').innerText = percentageNumber.toFixed(2) + '%';
-
-    
-}
-
-
+// updating the expenses chart it also counts the Presentage for the expenses chart.
 function updateExpensesChart() {
     const container = document.querySelector(".expenses-div");
     container.innerHTML = "";
@@ -349,6 +317,40 @@ function updateExpensesChart() {
     });
 }
 
+// updating the main expenses presentage box.
+function updatePresentage() {
+    let percentageText = document.getElementById('percentage').innerText;
+    let percentageNumber = parseFloat(percentageText);
+
+    if (isNaN(percentageNumber)) {
+        // If parsing fails, assign a default value, such as 0.
+        percentageNumber = 0;
+    }
+
+    let totalExpenses = parseFloat(document.getElementById("expenses").innerText.replace(/[^\d.-]/g, ''));
+
+    let totalIncome = parseFloat(document.getElementById("income").innerText.replace(/[^\d.-]/g, ''));
+    
+    if (isNaN(totalExpenses)) {
+        totalExpenses = 0;
+    }
+
+    if (isNaN(totalIncome)) {
+        totalIncome = 0;
+    }
+    
+    if (totalIncome === 0) {
+        percentageNumber = 0; // to avoid division by zero
+    } else {
+        percentageNumber = ((totalExpenses / totalIncome) * 100)*-1;
+    }
+    
+    document.getElementById('percentage').innerText = percentageNumber.toFixed(2) + '%';
+
+    
+}
+
+// operator change.
 
 function toggleBudgetOperator() {
     const plus = document.getElementById('plus');
@@ -365,22 +367,28 @@ function toggleBudgetOperator() {
     }
 }
 
+// localstorage save function.
 function saveDataToLocalStorage() {
     localStorage.setItem('incomes', JSON.stringify(incomesArray));
     localStorage.setItem('expenses', JSON.stringify(expensesArray));
-    // Additionally, you might want to save other data like dateArray
+ 
 
 }
+
+// localstorage get function.
 function loadDataFromLocalStorage() {
     incomesArray = JSON.parse(localStorage.getItem('incomes')) || [];
     expensesArray = JSON.parse(localStorage.getItem('expenses')) || [];
 }
+
+//Description and value cssing.
 
 function borderColor(elementId) {
     
     document.getElementById(elementId).style.outline = "none";
     document.getElementById(elementId).style.border = "solid green";
     document.getElementById(elementId).style.borderWidth= "3px";
+
     if (elementId === 'Description-minus') {
         document.getElementById(elementId).style.outline = "none";
         document.getElementById(elementId).style.border = "solid red";        
@@ -399,6 +407,8 @@ function resetBorder(elementId) {
     document.getElementById(elementId).style.outline = "none";
     document.getElementById(elementId).style.borderWidth= "1px";
 }
+
+//Operator cssing.
 function borderValue(operatorValue) {
     if (operatorValue === '+') {
         
@@ -421,8 +431,5 @@ function resetBorderValue(operatorValue) {
     document.getElementById("operatorValue").style.outline = "none";
     document.getElementById("operatorValue").style.borderWidth= "1px";
 }
-
-
-
 
 date = getDate()

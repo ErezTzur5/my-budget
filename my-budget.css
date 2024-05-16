@@ -382,6 +382,8 @@ button {
     background-color: rgba(207, 201, 201, 0.242);
 }
 
+
+
 @media (width <=1315px) {
     .income-list {
         width: 28rem;
