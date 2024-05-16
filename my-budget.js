@@ -89,6 +89,15 @@ function getIncome() {
 function getExpenses() {
 
     var amount = document.getElementById("Value-minus").value;
+    amount = amount.replace(/[^0-9]/g, '');
+    console.log(amount);
+
+    var regex = /^[\+\-\*\/\s\(\)]+$/;
+    if (regex.test(amount)) {
+        alert("Please enter a valid number.");
+        return;
+    }
+
     var description = document.getElementById("Description-minus").value;
     if (description.trim() === "" || amount.trim() === "") {
         alert("Please fill in both description and value.");
