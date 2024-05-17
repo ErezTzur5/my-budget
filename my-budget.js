@@ -90,7 +90,9 @@ function getExpenses() {
 
     var amount = document.getElementById("Value-minus").value;
     amount = amount.replace(/[^0-9]/g, '');
-    console.log(amount);
+    if (amount !== amount.replace(/[^0-9]/g, '')) {
+        console.log('here');
+    }
 
     var regex = /^[\+\-\*\/\s\(\)]+$/;
     if (regex.test(amount)) {
