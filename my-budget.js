@@ -48,19 +48,21 @@ document.querySelector(".current-budget").innerHTML = "-0.00"; function getDate(
 
 }
 
+
 // get the description and amount for incomes.
 function getIncome() {
 
 
     var amount = document.getElementById("Value").value;
-    amount = amount.replace(/[^0-9]/g, '');
-    console.log(amount);
+    
+    console.log('1',amount);
 
-    var regex = /^[\+\-\*\/\s\(\)]+$/;
-    if (regex.test(amount)) {
-        alert("Please enter a valid number.");
+    const regex = /^[0-9]*$/;
+    if (!regex.test(amount)) {
+        alert('Invalid amount')
         return;
     }
+
 
     var description = document.getElementById("Description").value;
     if (description.trim() === "" || amount.trim() === "") {
@@ -88,15 +90,14 @@ function getIncome() {
 // get the description and amount for expenses.
 function getExpenses() {
 
+  
     var amount = document.getElementById("Value-minus").value;
-    amount = amount.replace(/[^0-9]/g, '');
-    if (amount !== amount.replace(/[^0-9]/g, '')) {
-        console.log('here');
-    }
+    
+    console.log('1',amount);
 
-    var regex = /^[\+\-\*\/\s\(\)]+$/;
-    if (regex.test(amount)) {
-        alert("Please enter a valid number.");
+    const regex = /^[0-9]*$/;
+    if (!regex.test(amount)) {
+        alert('Invalid amount')
         return;
     }
 
@@ -117,6 +118,10 @@ function getExpenses() {
     return expensesArray;
 }
 
+function darkMode() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+ }
 // updating the budget.
 function updateBudget() {
 
