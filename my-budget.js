@@ -121,7 +121,29 @@ function getExpenses() {
 function darkMode() {
     var element = document.body;
     element.classList.toggle("dark-mode");
- }
+
+    var sections = document.getElementsByClassName("section-2");
+    for (var i = 0; i < sections.length; i++) {
+      sections[i].classList.toggle("dark-mode");
+    }
+
+    // Toggle the display of sun and moon icons
+    var sunIcon = document.querySelector('.sun');
+    var moonIcon = document.querySelector('.moon');
+
+    var sunDisplay = getComputedStyle(sunIcon).display;
+    var moonDisplay = getComputedStyle(moonIcon).display;
+
+    if (sunDisplay === 'none') {
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+    } else {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+    }
+    
+  }
+
 // updating the budget.
 function updateBudget() {
 
